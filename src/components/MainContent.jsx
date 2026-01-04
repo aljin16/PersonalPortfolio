@@ -2,21 +2,6 @@ import { motion } from 'framer-motion';
 import { Briefcase, FileText, Award, Link2, ChevronRight, X } from 'lucide-react';
 import { useState } from 'react';
 
-// Import images
-import html5Icon from '../assets/html-5.png';
-import css3Icon from '../assets/css-3.png';
-import jsIcon from '../assets/js.png';
-import reactIcon from '../assets/react.png';
-import vueIcon from '../assets/vue.png';
-import phpIcon from '../assets/php.png';
-import mysqlIcon from '../assets/mysql.png';
-import gitlabIcon from '../assets/gitlab.png';
-import vscodeIcon from '../assets/vscode.png';
-import figmaIcon from '../assets/figma.png';
-import badgeIcon from '../assets/badge.png';
-import cert1Icon from '../assets/cert1.png';
-import cert2Icon from '../assets/cert2.png';
-
 const experience = [
   {
     title: 'BS Information Technology',
@@ -52,24 +37,24 @@ const experience = [
 
 const techStack = {
   'Frontend Technologies': [
-    { name: 'HTML5', icon: html5Icon },
-    { name: 'CSS3', icon: css3Icon },
-    { name: 'JavaScript', icon: jsIcon },
+    { name: 'HTML5', icon: '/src/assets/html-5.png' },
+    { name: 'CSS3', icon: '/src/assets/css-3.png' },
+    { name: 'JavaScript', icon: '/src/assets/js.png' },
   ],
   'JavaScript Frameworks': [
-    { name: 'React', icon: reactIcon },
-    { name: 'Vue', icon: vueIcon },
+    { name: 'React', icon: '/src/assets/react.png' },
+    { name: 'Vue', icon: '/src/assets/vue.png' },
   ],
   'Backend & Database': [
-    { name: 'PHP', icon: phpIcon },
-    { name: 'MySQL', icon: mysqlIcon },
+    { name: 'PHP', icon: '/src/assets/php.png' },
+    { name: 'MySQL', icon: '/src/assets/mysql.png' },
     { name: 'Basic Backend', icon: null },
     { name: 'API Integration', icon: null },
   ],
   'Tools & Skills': [
-    { name: 'Git', icon: gitlabIcon },
-    { name: 'VS Code', icon: vscodeIcon },
-    { name: 'Figma', icon: figmaIcon },
+    { name: 'Git', icon: '/src/assets/gitlab.png' },
+    { name: 'VS Code', icon: '/src/assets/vscode.png' },
+    { name: 'Figma', icon: '/src/assets/figma.png' },
     { name: 'Responsive Design', icon: null },
     { name: 'RBAC', icon: null },
   ],
@@ -232,7 +217,7 @@ const MainContent = () => {
                 </div>
                 <div className="relative">
                   <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                    <img src={badgeIcon} alt="Credly Badge" className="w-11 h-11 object-contain" />
+                    <img src="/src/assets/badge.png" alt="Credly Badge" className="w-11 h-11 object-contain" />
                   </div>
                   <div className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-white rounded-full flex items-center justify-center">
                     <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -367,7 +352,7 @@ const MainContent = () => {
                   <h3 className="text-sm font-medium text-gray-900">Certificate Overview</h3>
                   <div className="h-80 rounded-xl overflow-hidden bg-gray-50 border border-gray-100 shadow-sm">
                     <img 
-                      src={cert1Icon} 
+                      src="/src/assets/cert1.png" 
                       alt="IT Specialist Certificate - Page 1"
                       className="w-full h-full object-contain"
                     />
@@ -379,7 +364,7 @@ const MainContent = () => {
                   <h3 className="text-sm font-medium text-gray-900">Score Details</h3>
                   <div className="h-80 rounded-xl overflow-hidden bg-gray-50 border border-gray-100 shadow-sm">
                     <img 
-                      src={cert2Icon} 
+                      src="/src/assets/cert2.png" 
                       alt="IT Specialist Certificate - Page 2"
                       className="w-full h-full object-cover"
                     />
@@ -391,15 +376,15 @@ const MainContent = () => {
                 <h3 className="text-sm font-medium text-gray-900 mb-2">Skills Validated</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   <div className="flex items-center gap-2 text-xs text-gray-600">
-                    <img src={html5Icon} alt="HTML5" className="w-4 h-4" />
+                    <img src="/src/assets/html-5.png" alt="HTML5" className="w-4 h-4" />
                     <span>HTML5</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-gray-600">
-                    <img src={css3Icon} alt="CSS3" className="w-4 h-4" />
+                    <img src="/src/assets/css-3.png" alt="CSS3" className="w-4 h-4" />
                     <span>CSS3</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-gray-600">
-                    <img src={jsIcon} alt="JavaScript" className="w-4 h-4" />
+                    <img src="/src/assets/js.png" alt="JavaScript" className="w-4 h-4" />
                     <span>JavaScript</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-gray-600">
