@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Mail, Send, Users } from 'lucide-react';
+import verifiedIcon from '../assets/verified.png';
 
 const Hero = () => {
   return (
@@ -24,7 +25,7 @@ const Hero = () => {
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
                 Aljean Sinohin
               </h1>
-              <img src="/src/assets/verified.png" alt="Verified" className="w-5 h-5" />
+              <img src={verifiedIcon} alt="Verified" className="w-5 h-5" />
             </div>
 
             <p className="text-lg md:text-xl text-gray-600 font-medium mb-1">
