@@ -29,61 +29,34 @@ const education = [
 
 const BottomSection = () => {
   return (
-    <section className="py-12 px-6">
+    <section className="py-6 px-6 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         {/* Four Column Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {/* A member of */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="bg-white rounded-2xl p-5 border border-gray-200/60"
-          >
-            <div className="flex items-center gap-2.5 mb-4">
-              <Users size={16} className="text-gray-500" />
-              <h3 className="text-base font-bold text-gray-900">A member of</h3>
-            </div>
-
-            <div className="space-y-2">
-              {memberships.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.link}
-                  className="flex items-center justify-between p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors group"
-                >
-                  <span className="text-sm text-gray-700">{item.name}</span>
-                  <ExternalLink size={12} className="text-gray-400 group-hover:text-gray-600" />
-                </a>
-              ))}
-            </div>
-          </motion.div>
-
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
           {/* Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="bg-white rounded-2xl p-5 border border-gray-200/60"
+            className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200/60 dark:border-gray-700"
           >
-            <div className="flex items-center gap-2.5 mb-4">
-              <Link2 size={16} className="text-gray-500" />
-              <h3 className="text-base font-bold text-gray-900">Social Links</h3>
+            <div className="flex items-center gap-2 mb-3">
+              <Link2 size={14} className="text-gray-500 dark:text-gray-400" />
+              <h3 className="text-sm font-bold text-gray-900 dark:text-white">Social Links</h3>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               {socialLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                  className="flex items-center gap-2 p-2 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
                 >
-                  <link.icon size={16} className="text-gray-600" />
-                  <span className="text-sm text-gray-700">{link.name}</span>
+                  <link.icon size={14} className="text-gray-600 dark:text-gray-300" />
+                  <span className="text-xs text-gray-700 dark:text-gray-200">{link.name}</span>
                 </a>
               ))}
             </div>
@@ -95,19 +68,19 @@ const BottomSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="bg-white rounded-2xl p-5 border border-gray-200/60"
+            className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200/60 dark:border-gray-700"
           >
-            <div className="flex items-center gap-2.5 mb-4">
-              <GraduationCap size={16} className="text-gray-500" />
-              <h3 className="text-base font-bold text-gray-900">Education</h3>
+            <div className="flex items-center gap-2 mb-3">
+              <GraduationCap size={14} className="text-gray-500 dark:text-gray-400" />
+              <h3 className="text-sm font-bold text-gray-900 dark:text-white">Education</h3>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {education.map((edu) => (
                 <div key={edu.degree}>
-                  <p className="text-sm font-semibold text-gray-900 mb-0.5">{edu.degree}</p>
-                  <p className="text-sm text-gray-500">{edu.institution}</p>
-                  <p className="text-sm text-gray-400 mt-1">{edu.period}</p>
+                  <p className="text-xs font-semibold text-gray-900 dark:text-white mb-0.5">{edu.degree}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">{edu.institution}</p>
+                  <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{edu.period}</p>
                 </div>
               ))}
             </div>
@@ -120,29 +93,29 @@ const BottomSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.3 }}
             id="contact"
-            className="bg-white rounded-2xl p-5 border border-gray-200/60"
+            className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200/60 dark:border-gray-700"
           >
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <a
                 href="mailto:aljean.sinohin@email.com"
-                className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                className="flex items-center gap-2 p-2 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
               >
-                <Mail size={16} className="text-gray-600" />
+                <Mail size={14} className="text-gray-600 dark:text-gray-300" />
                 <div>
-                  <p className="text-sm font-semibold text-gray-900">Email</p>
-                  <p className="text-sm text-gray-500">aljean.sinohin@email.com</p>
+                  <p className="text-xs font-semibold text-gray-900 dark:text-white">Email</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">aljean.sinohin@email.com</p>
                 </div>
               </a>
 
               <a
                 href="#"
-                className="flex items-center justify-between p-3 bg-orange-50 rounded-xl hover:bg-orange-100 transition-colors group"
+                className="flex items-center justify-between p-2 bg-orange-50 dark:bg-orange-900/20 rounded-lg hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-colors group"
               >
-                <div className="flex items-center gap-3">
-                  <Calendar size={16} className="text-orange-600" />
-                  <p className="text-sm font-semibold text-gray-900">Let's Talk</p>
+                <div className="flex items-center gap-2">
+                  <Calendar size={14} className="text-orange-600 dark:text-orange-400" />
+                  <p className="text-xs font-semibold text-gray-900 dark:text-white">Let's Talk</p>
                 </div>
-                <ChevronRight size={14} className="text-gray-400 group-hover:text-gray-600" />
+                <ChevronRight size={14} className="text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300" />
               </a>
             </div>
           </motion.div>

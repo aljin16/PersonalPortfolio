@@ -59,7 +59,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-12 px-6">
+    <section id="projects" className="py-6 px-6 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -67,19 +67,19 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-5"
+          className="mb-3"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <FolderOpen size={18} className="text-gray-500" />
-              <h2 className="text-lg font-bold text-gray-900">Recent Projects</h2>
+              <FolderOpen size={16} className="text-gray-500 dark:text-gray-400" />
+              <h2 className="text-base font-bold text-gray-900 dark:text-white">Recent Projects</h2>
             </div>
-            <a href="#" className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1">View All <ArrowUpRight size={14} /></a>
+            <a href="#" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1">View All <ArrowUpRight size={14} /></a>
           </div>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-3">
           {projects.map((project, index) => (
             <motion.a
               key={project.title}
@@ -90,35 +90,35 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-white rounded-2xl p-6 border border-gray-200/60 hover:border-gray-300 transition-all duration-200"
+              className="group relative bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200/60 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200"
             >
               {/* Arrow Icon */}
-              <div className="absolute top-6 right-6 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 group-hover:bg-gray-900 group-hover:text-white transition-all duration-200">
+              <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-500 group-hover:bg-gray-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-gray-900 transition-all duration-200">
                 <ArrowUpRight size={16} />
               </div>
 
               {/* Project Info */}
-              <div className="pr-10">
-                <h3 className="text-base font-bold text-gray-900 mb-1 group-hover:text-gray-700 transition-colors">
+              <div className="pr-8">
+                <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-0.5 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
                   {project.title}
                 </h3>
-                <div className="flex items-center gap-1.5 text-sm text-gray-400 mb-2">
+                <div className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-1.5">
                   <span>{project.year}</span>
                   <span className="w-0.5 h-0.5 rounded-full bg-gray-300"></span>
                   <span className="text-emerald-600 font-medium">Live</span>
                 </div>
               </div>
 
-              <p className="text-[15px] text-gray-500 mb-4 leading-relaxed line-clamp-2">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-3 leading-relaxed line-clamp-2">
                 {project.description}
               </p>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-1.5 mb-3">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1.5 bg-gray-50 text-gray-600 text-sm rounded-lg font-mono"
+                    className="px-2 py-1 bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs rounded-md font-mono"
                   >
                     {tag}
                   </span>
@@ -126,16 +126,16 @@ const Projects = () => {
               </div>
 
               {/* Features */}
-              <div className="pt-4 border-t border-gray-100">
-                <ul className="space-y-1">
+              <div className="pt-3 border-t border-gray-100 dark:border-gray-700">
+                <ul className="space-y-0.5">
                   {project.features.slice(0, 2).map((feature) => (
-                    <li key={feature} className="flex items-start gap-1.5 text-sm text-gray-500">
-                      <div className="w-1 h-1 rounded-full bg-gray-300 mt-1.5 shrink-0"></div>
+                    <li key={feature} className="flex items-start gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+                      <div className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600 mt-1 shrink-0"></div>
                       <span className="line-clamp-1">{feature}</span>
                     </li>
                   ))}
                   {project.features.length > 2 && (
-                    <li className="text-sm text-gray-400 pl-2.5">
+                    <li className="text-xs text-gray-400 dark:text-gray-500 pl-2.5">
                       +{project.features.length - 2} more features
                     </li>
                   )}
