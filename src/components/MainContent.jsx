@@ -1,6 +1,19 @@
 import { motion } from 'framer-motion';
-import { Briefcase, FileText, Award, Link2, ChevronRight, X } from 'lucide-react';
+import { MapPin, Calendar, Mail, Send, Users, Award, ArrowUpRight, Briefcase, FileText, Link2, ChevronRight, X } from 'lucide-react';
 import { useState } from 'react';
+import htmlIcon from '../assets/html-5.png';
+import cssIcon from '../assets/css-3.png';
+import jsIcon from '../assets/js.png';
+import reactIcon from '../assets/react.png';
+import vueIcon from '../assets/vue.png';
+import phpIcon from '../assets/php.png';
+import mysqlIcon from '../assets/mysql.png';
+import gitlabIcon from '../assets/gitlab.png';
+import vscodeIcon from '../assets/vscode.png';
+import figmaIcon from '../assets/figma.png';
+import badgeIcon from '../assets/badge.png';
+import cert1Icon from '../assets/cert1.png';
+import cert2Icon from '../assets/cert2.png';
 
 const experience = [
   {
@@ -37,24 +50,24 @@ const experience = [
 
 const techStack = {
   'Frontend Technologies': [
-    { name: 'HTML5', icon: '/src/assets/html-5.png' },
-    { name: 'CSS3', icon: '/src/assets/css-3.png' },
-    { name: 'JavaScript', icon: '/src/assets/js.png' },
+    { name: 'HTML5', icon: htmlIcon },
+    { name: 'CSS3', icon: cssIcon },
+    { name: 'JavaScript', icon: jsIcon },
   ],
   'JavaScript Frameworks': [
-    { name: 'React', icon: '/src/assets/react.png' },
-    { name: 'Vue', icon: '/src/assets/vue.png' },
+    { name: 'React', icon: reactIcon },
+    { name: 'Vue', icon: vueIcon },
   ],
   'Backend & Database': [
-    { name: 'PHP', icon: '/src/assets/php.png' },
-    { name: 'MySQL', icon: '/src/assets/mysql.png' },
+    { name: 'PHP', icon: phpIcon },
+    { name: 'MySQL', icon: mysqlIcon },
     { name: 'Basic Backend', icon: null },
     { name: 'API Integration', icon: null },
   ],
   'Tools & Skills': [
-    { name: 'Git', icon: '/src/assets/gitlab.png' },
-    { name: 'VS Code', icon: '/src/assets/vscode.png' },
-    { name: 'Figma', icon: '/src/assets/figma.png' },
+    { name: 'Git', icon: gitlabIcon },
+    { name: 'VS Code', icon: vscodeIcon },
+    { name: 'Figma', icon: figmaIcon },
     { name: 'Responsive Design', icon: null },
     { name: 'RBAC', icon: null },
   ],
@@ -118,17 +131,12 @@ const MainContent = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200/60 dark:border-gray-700"
             >
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 mb-3">
                   <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                   </svg>
                   <h2 className="text-base font-bold text-gray-900 dark:text-white">Tech Stack</h2>
                 </div>
-                <a href="#skills" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1">
-                  View All <ChevronRight size={14} />
-                </a>
-              </div>
 
               <div className="space-y-3">
                 {Object.entries(techStack).map(([category, skills]) => (
@@ -164,13 +172,10 @@ const MainContent = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200/60 dark:border-gray-700"
             >
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 mb-3">
                   <Award size={16} className="text-gray-500 dark:text-gray-400" />
                   <h2 className="text-base font-bold text-gray-900 dark:text-white">Recent Certifications</h2>
                 </div>
-                <a href="#" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1">View All <ChevronRight size={14} /></a>
-              </div>
 
               <div className="space-y-2">
                 {certifications.map((cert) => (
@@ -211,7 +216,7 @@ const MainContent = () => {
               href="https://www.credly.com/badges/53a65aa4-0b25-44a2-8489-c89bb9b67047/facebook_messenger"
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg p-3 text-white shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer block"
+              className="group bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg p-3 text-white shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer block"
             >
               <div className="flex items-start justify-between mb-2">
                 <div className="flex-1">
@@ -219,15 +224,8 @@ const MainContent = () => {
                   <h3 className="text-base font-bold mb-0.5 tracking-tight">IT Specialist</h3>
                   <p className="text-xs text-gray-400">HTML and CSS</p>
                 </div>
-                <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                    <img src="/src/assets/badge.png" alt="Credly Badge" className="w-8 h-8 object-contain" />
-                  </div>
-                  <div className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </div>
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <img src={badgeIcon} alt="Credly Badge" className="w-8 h-8 object-contain" />
                 </div>
               </div>
 
@@ -243,7 +241,10 @@ const MainContent = () => {
                   </svg>
                   View on Credly
                 </span>
-                <span className="text-[11px] text-gray-500">Verify →</span>
+                <span className="text-[11px] text-gray-400 flex items-center gap-1">
+                  Verify
+                  <ArrowUpRight size={12} />
+                </span>
               </div>
             </a>
 
@@ -255,16 +256,9 @@ const MainContent = () => {
                   <h3 className="text-base font-bold mb-0.5 tracking-tight">AI Ready</h3>
                   <p className="text-xs text-blue-200">ASEAN</p>
                 </div>
-                <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
                     <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold text-white">AI</div>
                   </div>
-                  <div className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                    <svg className="w-3 h-3 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </div>
-                </div>
               </div>
 
               <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-white/10">
@@ -279,7 +273,7 @@ const MainContent = () => {
                   </svg>
                   View Certificate
                 </span>
-                <span className="text-[11px] text-blue-300/70">Verify →</span>
+                <span className="text-[11px] text-blue-300/70">Verify</span>
               </div>
             </div>
 
@@ -434,7 +428,7 @@ const MainContent = () => {
                   <h3 className="text-sm font-medium text-gray-900 dark:text-white">Certificate Overview</h3>
                   <div className="h-80 rounded-xl overflow-hidden bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 shadow-sm">
                     <img 
-                      src="/src/assets/cert1.png" 
+                      src={cert1Icon} 
                       alt="IT Specialist Certificate - Page 1"
                       className="w-full h-full object-contain"
                     />
@@ -446,7 +440,7 @@ const MainContent = () => {
                   <h3 className="text-sm font-medium text-gray-900">Score Details</h3>
                   <div className="h-80 rounded-xl overflow-hidden bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 shadow-sm">
                     <img 
-                      src="/src/assets/cert2.png" 
+                      src={cert2Icon} 
                       alt="IT Specialist Certificate - Page 2"
                       className="w-full h-full object-cover"
                     />
@@ -458,15 +452,15 @@ const MainContent = () => {
                 <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-2">Skills Validated</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-300">
-                    <img src="/src/assets/html-5.png" alt="HTML5" className="w-4 h-4" />
+                    <img src={htmlIcon} alt="HTML5" className="w-4 h-4" />
                     <span>HTML5</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-300">
-                    <img src="/src/assets/css-3.png" alt="CSS3" className="w-4 h-4" />
+                    <img src={cssIcon} alt="CSS3" className="w-4 h-4" />
                     <span>CSS3</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-300">
-                    <img src="/src/assets/js.png" alt="JavaScript" className="w-4 h-4" />
+                    <img src={jsIcon} alt="JavaScript" className="w-4 h-4" />
                     <span>JavaScript</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-300">

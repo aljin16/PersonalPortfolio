@@ -97,13 +97,13 @@ const BottomSection = () => {
           >
             <div className="space-y-1.5">
               <a
-                href="mailto:aljean.sinohin@email.com"
+                href="mailto:aljeansinohin16@gmail.com"
                 className="flex items-center gap-2 p-2 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
               >
                 <Mail size={14} className="text-gray-600 dark:text-gray-300" />
                 <div>
                   <p className="text-xs font-semibold text-gray-900 dark:text-white">Email</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">aljean.sinohin@email.com</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">aljeansinohin16@gmail.com</p>
                 </div>
               </a>
 

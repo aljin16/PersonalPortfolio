@@ -24,42 +24,69 @@ const Certifications = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100"
+          className="group relative bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-gray-200/60 hover:shadow-3xl transition-all duration-500 overflow-hidden"
         >
-          <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-xl bg-gray-900 flex items-center justify-center shrink-0">
-              <Award className="text-white" size={28} />
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/40 via-transparent to-blue-50/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <div className="absolute top-8 right-8 w-20 h-20 bg-gradient-to-br from-emerald-400/30 to-blue-400/30 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+          
+          <div className="relative flex items-start gap-8">
+            <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-emerald-500 to-blue-600 flex items-center justify-center shrink-0 shadow-xl group-hover:scale-110 transition-transform duration-300">
+              <Award className="text-white" size={36} />
             </div>
 
-            <div className="flex-1">
-              <div className="flex flex-wrap items-center gap-3 mb-2">
-                <h3 className="text-xl font-semibold text-gray-900">
+            <div className="flex-1 space-y-6">
+              <div className="flex flex-wrap items-center gap-4">
+                <h3 className="text-3xl font-bold text-gray-900">
                   Certiport IT Specialist
                 </h3>
-                <span className="px-2.5 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-md flex items-center gap-1">
-                  <CheckCircle size={12} />
+                <span className="px-4 py-2 bg-emerald-100/90 text-emerald-700 text-sm font-bold rounded-full flex items-center gap-2 backdrop-blur-sm border border-emerald-200/50 shadow-sm">
+                  <CheckCircle size={16} />
                   Verified
                 </span>
               </div>
 
-              <p className="text-lg text-gray-700 font-medium mb-3">
-                HTML and CSS
-              </p>
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-100/50">
+                <p className="text-xl text-gray-800 font-bold">
+                  HTML and CSS
+                </p>
+              </div>
 
-              <div className="flex flex-wrap gap-6 mb-4">
-                <div>
-                  <p className="text-sm text-gray-500">Score</p>
-                  <p className="text-2xl font-bold text-gray-900">982 <span className="text-base font-normal text-gray-500">/ 1000</span></p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 backdrop-blur-sm border border-gray-200/50 group-hover:shadow-lg transition-all duration-300">
+                  <p className="text-sm text-gray-600 mb-2 font-medium">Score</p>
+                  <div className="flex items-baseline gap-1">
+                    <p className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">982</p>
+                    <span className="text-lg font-normal text-gray-500">/ 1000</span>
+                  </div>
+                  <div className="mt-2 w-full bg-gray-200 rounded-full h-2">
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style={{width: '98.2%'}}></div>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm text-gray-500">Percentile</p>
-                  <p className="text-2xl font-bold text-gray-900">98.2%</p>
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 backdrop-blur-sm border border-gray-200/50 group-hover:shadow-lg transition-all duration-300">
+                  <p className="text-sm text-gray-600 mb-2 font-medium">Percentile</p>
+                  <div className="flex items-baseline gap-1">
+                    <p className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">98.2%</p>
+                  </div>
+                  <div className="mt-2 flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <div key={i} className={`h-2 flex-1 rounded-full ${i < 5 ? 'bg-gradient-to-r from-emerald-400 to-blue-400' : 'bg-gray-200'}`}></div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <p className="text-gray-600 text-sm">
-                This certification demonstrates strong proficiency in HTML5 and CSS3, validating skills in semantic markup, responsive design, CSS layouts, and modern web development best practices.
-              </p>
+              <div className="bg-gradient-to-br from-blue-50/50 to-purple-50/50 rounded-2xl p-6 backdrop-blur-sm border border-blue-100/50">
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  This certification demonstrates strong proficiency in HTML5 and CSS3, validating skills in semantic markup, responsive design, CSS layouts, and modern web development best practices.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3 pt-2">
+                <span className="px-4 py-2 bg-blue-50/80 text-blue-700 rounded-xl text-sm font-semibold backdrop-blur-sm border border-blue-100/50">HTML5</span>
+                <span className="px-4 py-2 bg-purple-50/80 text-purple-700 rounded-xl text-sm font-semibold backdrop-blur-sm border border-purple-100/50">CSS3</span>
+                <span className="px-4 py-2 bg-emerald-50/80 text-emerald-700 rounded-xl text-sm font-semibold backdrop-blur-sm border border-emerald-100/50">Responsive Design</span>
+              </div>
             </div>
           </div>
         </motion.div>

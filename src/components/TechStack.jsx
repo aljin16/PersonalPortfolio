@@ -57,26 +57,43 @@ const TechStack = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-6"
+          className="grid md:grid-cols-2 gap-8"
         >
           {techCategories.map((category) => (
             <motion.div
               key={category.title}
               variants={itemVariants}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+              className="group relative bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-gray-200/60 hover:shadow-3xl transition-all duration-500 overflow-hidden"
             >
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                {category.title}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors"
-                  >
-                    {skill}
-                  </span>
-                ))}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 via-transparent to-purple-50/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="absolute top-6 right-6 w-20 h-20 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+              
+              <div className="relative space-y-6">
+                <div className="flex items-center gap-4 pb-4 border-b border-gray-200/50">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-lg">
+                      {category.title.charAt(0)}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {category.title}
+                  </h3>
+                </div>
+                
+                <div className="flex flex-wrap gap-3">
+                  {category.skills.map((skill, index) => (
+                    <span
+                      key={skill}
+                      className="px-4 py-2.5 bg-gradient-to-r from-gray-50 to-gray-100 text-gray-700 rounded-xl text-sm font-medium hover:from-blue-500 hover:to-purple-600 hover:text-white hover:shadow-lg hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-gray-200/50"
+                      style={{
+                        transitionDelay: `${index * 50}ms`
+                      }}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
