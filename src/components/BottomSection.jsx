@@ -9,9 +9,9 @@ const memberships = [
 ];
 
 const socialLinks = [
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-  { name: 'GitHub', icon: Github, href: 'https://github.com' },
-  { name: 'Instagram', icon: Instagram, href: 'https://instagram.com' },
+  { name: 'LinkedIn', icon: Linkedin, href: 'https://ph.linkedin.com/in/aljean-sinohin-08a496217' },
+  { name: 'GitHub', icon: Github, href: 'https://github.com/aljin16' },
+  { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/_aljinnn?igsh=aXNkdWZ3c20yNWxu' },
 ];
 
 const education = [
@@ -29,7 +29,7 @@ const education = [
 
 const BottomSection = () => {
   return (
-    <section className="py-6 px-6 bg-white dark:bg-gray-900">
+    <section className="py-4 px-4 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         {/* Four Column Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">

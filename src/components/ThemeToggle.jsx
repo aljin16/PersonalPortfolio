@@ -37,7 +37,7 @@ const ThemeToggle = () => {
 
   if (!mounted) {
     return (
-      <div className="fixed top-6 right-6 z-50 w-16 h-8 rounded-full bg-gray-300 shadow-2xl">
+      <div className="absolute top-6 right-6 z-50 w-14 h-7 rounded-full bg-gray-300 shadow-2xl">
       </div>
     );
   }
@@ -45,7 +45,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed top-6 right-6 z-50 w-16 h-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-1500 overflow-hidden border-[2px] hover:scale-105"
+      className="absolute top-6 right-6 z-50 w-14 h-7 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-1500 overflow-hidden border-[2px] hover:scale-105"
       style={{
         borderColor: theme === 'light' ? '#a5d8ff' : '#4c1d95',
         boxShadow: theme === 'light' 
@@ -60,7 +60,7 @@ const ThemeToggle = () => {
           : 'bg-gradient-to-br from-purple-900 via-purple-700 to-indigo-800'
       }`}>
         {/* Toggle circle (Moon in dark mode, Sun in light mode) */}
-        <div className={`absolute top-0.5 w-6 h-6 rounded-full shadow-2xl transition-all duration-1500 ease-in-out transform ${
+        <div className={`absolute top-0.5 w-5 h-5 rounded-full shadow-2xl transition-all duration-1500 ease-in-out transform ${
           theme === 'light' 
             ? 'right-0.5 bg-gradient-to-br from-yellow-300 via-yellow-400 to-yellow-500' 
             : 'left-0.5 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300'

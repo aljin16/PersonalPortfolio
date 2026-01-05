@@ -11,9 +11,15 @@ import mysqlIcon from '../assets/mysql.png';
 import gitlabIcon from '../assets/gitlab.png';
 import vscodeIcon from '../assets/vscode.png';
 import figmaIcon from '../assets/figma.png';
+import tailwindIcon from '../assets/tailwind.png';
+import supabaseIcon from '../assets/supabase.png';
+import vercelIcon from '../assets/vercel.svg';
+import aiIcon from '../assets/ai.png';
 import badgeIcon from '../assets/badge.png';
 import cert1Icon from '../assets/cert1.png';
+import cert1Image from '../assets/cert1.jpg';
 import cert2Icon from '../assets/cert2.png';
+import downloadIcon from '../assets/download.png';
 
 const experience = [
   {
@@ -53,6 +59,7 @@ const techStack = {
     { name: 'HTML5', icon: htmlIcon },
     { name: 'CSS3', icon: cssIcon },
     { name: 'JavaScript', icon: jsIcon },
+    { name: 'Tailwind CSS', icon: tailwindIcon },
   ],
   'JavaScript Frameworks': [
     { name: 'React', icon: reactIcon },
@@ -61,6 +68,7 @@ const techStack = {
   'Backend & Database': [
     { name: 'PHP', icon: phpIcon },
     { name: 'MySQL', icon: mysqlIcon },
+    { name: 'Supabase', icon: supabaseIcon },
     { name: 'Basic Backend', icon: null },
     { name: 'API Integration', icon: null },
   ],
@@ -68,6 +76,8 @@ const techStack = {
     { name: 'Git', icon: gitlabIcon },
     { name: 'VS Code', icon: vscodeIcon },
     { name: 'Figma', icon: figmaIcon },
+    { name: 'Vercel', icon: vercelIcon },
+    { name: 'AI', icon: aiIcon },
     { name: 'Responsive Design', icon: null },
     { name: 'RBAC', icon: null },
   ],
@@ -82,6 +92,8 @@ const certifications = [
 ];
 
 const MainContent = () => {
+  const [showCertModal, setShowCertModal] = useState(false);
+  const [showCert2Modal, setShowCert2Modal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedExperience, setSelectedExperience] = useState(null);
 
@@ -107,7 +119,7 @@ const MainContent = () => {
             >
               <div className="flex items-center gap-2 mb-3">
                 <FileText size={16} className="text-gray-500 dark:text-gray-400" />
-                <h2 className="text-base font-bold text-gray-900 dark:text-white">About</h2>
+                <h2 className="text-lg font-extrabold text-gray-900 dark:text-white">About</h2>
               </div>
 
               <div className="space-y-2 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
@@ -135,7 +147,7 @@ const MainContent = () => {
                   <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                   </svg>
-                  <h2 className="text-base font-bold text-gray-900 dark:text-white">Tech Stack</h2>
+                  <h2 className="text-lg font-extrabold text-gray-900 dark:text-white">Tech Stack</h2>
                 </div>
 
               <div className="space-y-3">
@@ -174,7 +186,7 @@ const MainContent = () => {
             >
               <div className="flex items-center gap-2 mb-3">
                   <Award size={16} className="text-gray-500 dark:text-gray-400" />
-                  <h2 className="text-base font-bold text-gray-900 dark:text-white">Recent Certifications</h2>
+                  <h2 className="text-lg font-extrabold text-gray-900 dark:text-white">Recent Certifications</h2>
                 </div>
 
               <div className="space-y-2">
@@ -257,7 +269,7 @@ const MainContent = () => {
                   <p className="text-xs text-blue-200">ASEAN</p>
                 </div>
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                    <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold text-white">AI</div>
+                    <img src={downloadIcon} alt="AI Ready" className="w-8 h-8 rounded-full" />
                   </div>
               </div>
 
@@ -267,7 +279,10 @@ const MainContent = () => {
               </div>
 
               <div className="flex items-center justify-between mt-2">
-                <span className="text-[11px] text-blue-200 flex items-center gap-1">
+                <span 
+                  className="text-[11px] text-blue-200 flex items-center gap-1 cursor-pointer hover:text-blue-300 transition-colors"
+                  onClick={() => setShowCertModal(true)}
+                >
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
@@ -288,13 +303,15 @@ const MainContent = () => {
                 <div className="p-1.5 bg-gradient-to-br from-gray-900 to-gray-700 rounded-md">
                   <Briefcase size={14} className="text-white" />
                 </div>
-                <h2 className="text-base font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">Experience & Journey</h2>
+                <h2 className="text-lg font-extrabold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+                  Experience & Journey
+                </h2>
               </div>
 
               <div className="relative flex-1 flex flex-col">
                 {/* Animated timeline line */}
                 <motion.div 
-                  className="absolute left-[9px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-gray-900 via-gray-400 to-gray-200 dark:from-gray-300 dark:via-gray-600 dark:to-gray-700"
+                  className="absolute left-[10px] top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-700"
                   initial={{ scaleY: 0 }}
                   whileInView={{ scaleY: 1 }}
                   viewport={{ once: true }}
@@ -312,43 +329,34 @@ const MainContent = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.1 * index }}
                     >
-                      {/* Enhanced Timeline dot with pulse effect and click interaction */}
+                      {/* Timeline dot */}
                       <div className="absolute left-0 top-1 flex items-center justify-center">
-                        {exp.current && (
-                          <motion.div
-                            className="absolute w-5 h-5 rounded-full bg-gray-900/20"
-                            animate={{ scale: [1, 1.5, 1] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          />
-                        )}
                         <motion.button
                           onClick={() => handleExperienceClick(index)}
-                          className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 cursor-pointer hover:scale-110 ${
-                            selectedExperience === index
-                              ? 'bg-gradient-to-br from-blue-600 to-blue-700 border-blue-600 shadow-lg shadow-blue-600/30'
-                              : exp.current 
-                                ? 'bg-gradient-to-br from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 border-gray-900 dark:border-white shadow-lg shadow-gray-900/30 dark:shadow-white/30' 
-                                : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-600'
+                          className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer ${
+                            selectedExperience === index || exp.current
+                              ? 'border-gray-900 bg-gray-900 dark:border-white dark:bg-white'
+                              : 'border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-800'
                           }`}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          {(selectedExperience === index || exp.current) && (
-                            <div className={`w-1.5 h-1.5 rounded-full ${
-                              selectedExperience === index ? 'bg-white' : 'bg-white dark:bg-gray-900'
-                            }`} />
-                          )}
+                          <div
+                            className={`w-1.5 h-1.5 rounded-full ${
+                              selectedExperience === index || exp.current
+                                ? 'bg-white dark:bg-gray-900'
+                                : 'bg-transparent'
+                            }`}
+                          />
                         </motion.button>
                       </div>
 
                       {/* Content card */}
                       <motion.div 
-                        className={`p-2 rounded-lg transition-all duration-300 cursor-pointer ${
+                        className={`p-3 rounded-lg transition-all duration-300 cursor-pointer border backdrop-blur-sm ${
                           selectedExperience === index
-                            ? 'bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-900/30 dark:to-blue-800/30 border-2 border-blue-200 dark:border-blue-700 shadow-md'
-                            : exp.current 
-                              ? 'bg-gradient-to-br from-gray-50 to-gray-100/50 dark:from-gray-700 dark:to-gray-700/50 border border-gray-200 dark:border-gray-600 shadow-md' 
-                              : 'bg-gray-50/40 dark:bg-gray-700/40 border border-transparent hover:border-gray-200 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700'
+                            ? 'bg-white/80 dark:bg-gray-800/70 border-gray-900/50 dark:border-white/30'
+                            : 'bg-white/70 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-500 hover:-translate-y-0.5'
                         }`}
                         whileHover={{ y: -1 }}
                         onClick={() => handleExperienceClick(index)}
@@ -356,27 +364,18 @@ const MainContent = () => {
                         <div className="flex items-start justify-between gap-1">
                           <div className="flex-1">
                             <h3 className={`font-semibold text-xs transition-colors duration-300 ${
-                              exp.current ? 'text-gray-900 dark:text-white' : 'text-gray-800 dark:text-gray-200'
+                              selectedExperience === index ? 'text-gray-900 dark:text-white' : 'text-gray-800 dark:text-gray-200'
                             }`}>
                               {exp.title}
                             </h3>
-                            <p className={`text-[10px] mt-0.5 transition-colors duration-300 ${
-                              exp.current ? 'text-gray-600 dark:text-gray-400' : 'text-gray-500 dark:text-gray-400'
+                            <p className={`text-[11px] mt-0.5 font-normal transition-colors duration-300 ${
+                              selectedExperience === index ? 'text-gray-600 dark:text-gray-300' : 'text-gray-500 dark:text-gray-400'
                             }`}>
                               {exp.company}
                             </p>
-                            {exp.current && (
-                              <motion.span 
-                                className="inline-block mt-0.5 px-1.5 py-0.5 bg-gradient-to-r from-gray-900 to-gray-700 text-white text-[9px] font-medium rounded-full"
-                                animate={{ opacity: [0.8, 1, 0.8] }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                              >
-                                Current
-                              </motion.span>
-                            )}
                           </div>
                           <span className={`shrink-0 font-medium text-[10px] transition-colors duration-300 ${
-                            exp.current ? 'text-gray-700 dark:text-gray-300' : 'text-gray-400 dark:text-gray-500'
+                            selectedExperience === index ? 'text-gray-700 dark:text-gray-300' : 'text-gray-400 dark:text-gray-500'
                           }`}>
                             {exp.year}
                           </span>
@@ -426,7 +425,8 @@ const MainContent = () => {
                 {/* Certificate Image 1 */}
                 <div className="space-y-3">
                   <h3 className="text-sm font-medium text-gray-900 dark:text-white">Certificate Overview</h3>
-                  <div className="h-80 rounded-xl overflow-hidden bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 shadow-sm">
+                  <div className="h-80 rounded-xl overflow-hidden bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 shadow-sm cursor-pointer hover:shadow-md transition-shadow"
+                       onClick={() => setShowCertModal(true)}>
                     <img 
                       src={cert1Icon} 
                       alt="IT Specialist Certificate - Page 1"
@@ -438,7 +438,8 @@ const MainContent = () => {
                 {/* Certificate Image 2 */}
                 <div className="space-y-3">
                   <h3 className="text-sm font-medium text-gray-900">Score Details</h3>
-                  <div className="h-80 rounded-xl overflow-hidden bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 shadow-sm">
+                  <div className="h-80 rounded-xl overflow-hidden bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 shadow-sm cursor-pointer hover:shadow-md transition-shadow"
+                       onClick={() => setShowCert2Modal(true)}>
                     <img 
                       src={cert2Icon} 
                       alt="IT Specialist Certificate - Page 2"
@@ -472,6 +473,62 @@ const MainContent = () => {
             </div>
           </motion.div>
         </motion.div>
+      )}
+
+      {/* Certificate Modal */}
+      {showCertModal && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          onClick={() => setShowCertModal(false)}
+        >
+          <div 
+            className="bg-white dark:bg-gray-900 rounded-lg shadow-md max-w-2xl max-h-[80vh] overflow-auto relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowCertModal(false)}
+              className="absolute top-3 right-3 p-1.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors z-10"
+            >
+              <X size={16} className="text-gray-600 dark:text-gray-300" />
+            </button>
+            <div className="p-4">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">Certificate</h3>
+              <img 
+                src={cert1Image} 
+                alt="Certificate" 
+                className="w-full h-auto rounded"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Certificate Modal 2 */}
+      {showCert2Modal && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          onClick={() => setShowCert2Modal(false)}
+        >
+          <div 
+            className="bg-white dark:bg-gray-900 rounded-lg shadow-md max-w-2xl max-h-[80vh] overflow-auto relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowCert2Modal(false)}
+              className="absolute top-3 right-3 p-1.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors z-10"
+            >
+              <X size={16} className="text-gray-600 dark:text-gray-300" />
+            </button>
+            <div className="p-4">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">Certificate Score Details</h3>
+              <img 
+                src={cert2Icon} 
+                alt="Certificate Score Details" 
+                className="w-full h-auto rounded"
+              />
+            </div>
+          </div>
+        </div>
       )}
     </section>
   );

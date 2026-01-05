@@ -3,7 +3,7 @@ import { Award, CheckCircle } from 'lucide-react';
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="py-20 px-6">
+    <section id="certifications" className="py-0 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,7 +14,7 @@ const Certifications = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
             Certifications
           </h2>
-          <p className="text-gray-500 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-500 text-center mb-6 max-w-2xl mx-auto">
             Professional certifications validating technical competencies
           </p>
         </motion.div>
@@ -24,14 +24,14 @@ const Certifications = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="group relative bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-gray-200/60 hover:shadow-3xl transition-all duration-500 overflow-hidden"
+          className="group relative bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-gray-200/60 dark:hover:shadow-3xl transition-all duration-500 overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/40 via-transparent to-blue-50/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/40 via-transparent to-blue-50/40 opacity-0 dark:group-hover:opacity-100 transition-opacity duration-500"></div>
           
-          <div className="absolute top-8 right-8 w-20 h-20 bg-gradient-to-br from-emerald-400/30 to-blue-400/30 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+          <div className="absolute top-8 right-8 w-20 h-20 bg-gradient-to-br from-emerald-400/30 to-blue-400/30 rounded-full blur-2xl dark:group-hover:scale-125 transition-transform duration-700"></div>
           
           <div className="relative flex items-start gap-8">
-            <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-emerald-500 to-blue-600 flex items-center justify-center shrink-0 shadow-xl group-hover:scale-110 transition-transform duration-300">
+            <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-emerald-500 to-blue-600 flex items-center justify-center shrink-0 shadow-xl dark:group-hover:scale-110 transition-transform duration-300">
               <Award className="text-white" size={36} />
             </div>
 
@@ -53,7 +53,7 @@ const Certifications = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 backdrop-blur-sm border border-gray-200/50 group-hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 backdrop-blur-sm border border-gray-200/50 dark:group-hover:shadow-lg transition-all duration-300">
                   <p className="text-sm text-gray-600 mb-2 font-medium">Score</p>
                   <div className="flex items-baseline gap-1">
                     <p className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">982</p>
@@ -63,7 +63,7 @@ const Certifications = () => {
                     <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full" style={{width: '98.2%'}}></div>
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 backdrop-blur-sm border border-gray-200/50 group-hover:shadow-lg transition-all duration-300">
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-4 backdrop-blur-sm border border-gray-200/50 dark:group-hover:shadow-lg transition-all duration-300">
                   <p className="text-sm text-gray-600 mb-2 font-medium">Percentile</p>
                   <div className="flex items-baseline gap-1">
                     <p className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">98.2%</p>

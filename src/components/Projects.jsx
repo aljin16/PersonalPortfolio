@@ -59,24 +59,23 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-4 px-4 bg-white dark:bg-gray-900">
+    <section id="projects" className="py-0 px-4 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-2"
+          className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700"
         >
-          <div className="flex items-center gap-2.5">
-            <FolderOpen size={16} className="text-gray-500 dark:text-gray-400" />
-            <h2 className="text-base font-bold text-gray-900 dark:text-white">Recent Projects</h2>
-          </div>
-        </motion.div>
+            {/* Header */}
+            <div className="flex items-center gap-2.5 mb-1">
+              <FolderOpen size={16} className="text-gray-500 dark:text-gray-400" />
+              <h2 className="text-lg font-extrabold text-gray-900 dark:text-white">Recent Projects</h2>
+            </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-2">
+            {/* Projects Grid */}
+            <div className="grid md:grid-cols-2 gap-2">
           {projects.map((project, index) => (
             <motion.a
               key={project.title}
@@ -87,7 +86,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl p-4 border border-gray-200/60 dark:border-gray-700/60 hover:bg-white dark:hover:bg-gray-800 hover:shadow-2xl transition-all duration-500 overflow-hidden"
+              className="group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl p-3 border border-gray-200/60 dark:border-gray-700/60 transition-all duration-500 overflow-hidden hover:bg-white hover:shadow-2xl dark:hover:bg-gray-800 dark:hover:shadow-2xl"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 dark:from-blue-900/40 via-transparent to-purple-50/40 dark:to-purple-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
@@ -95,19 +94,19 @@ const Projects = () => {
                 <ArrowUpRight size={18} />
               </div>
 
-              <div className="relative space-y-3">
+              <div className="relative space-y-2">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">
+                    <h3 className="text-base font-semibold tracking-tight text-gray-900 dark:text-white mb-2 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">
                       {project.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-3">
+                    <div className="flex items-center gap-2 text-[11px] text-gray-500 dark:text-gray-400 mb-2">
                       <div className="flex items-center gap-1">
                         <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
                         <span>{project.year}</span>
                       </div>
                       <span className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
-                      <span className="text-emerald-600 dark:text-emerald-400 font-bold">Live Project</span>
+                      <span className="text-emerald-600 dark:text-emerald-400 font-medium">Live Project</span>
                     </div>
                   </div>
                 </div>
@@ -120,14 +119,14 @@ const Projects = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-300 text-xs rounded-lg font-medium backdrop-blur-sm border border-gray-200/50 dark:border-gray-600/50 hover:from-blue-50 dark:hover:from-blue-900 hover:to-purple-50 dark:hover:to-purple-900 hover:text-blue-700 dark:hover:text-blue-300 hover:border-blue-200/50 dark:hover:border-blue-700/50 transition-all duration-300"
+                      className="px-2 py-1 text-gray-700 dark:text-gray-300 text-[11px] rounded-md font-medium border border-gray-200/70 dark:border-gray-600/70 bg-white/70 dark:bg-gray-800/70 hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="pt-3 border-t border-gray-100/60 dark:border-gray-700/60">
+                <div className="pt-2 border-t border-gray-100/60 dark:border-gray-700/60">
                   <div className="space-y-1">
                     {project.features.slice(0, 2).map((feature) => (
                       <div key={feature} className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
@@ -151,6 +150,7 @@ const Projects = () => {
             </motion.a>
           ))}
         </div>
+        </motion.div>
       </div>
     </section>
   );

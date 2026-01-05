@@ -36,7 +36,7 @@ const itemVariants = {
 
 const TechStack = () => {
   return (
-    <section id="skills" className="py-20 px-6">
+    <section id="skills" className="py-6 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ const TechStack = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
             Tech Stack
           </h2>
-          <p className="text-gray-500 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-500 text-center mb-6 max-w-2xl mx-auto">
             Technologies and tools I work with to build web applications
           </p>
         </motion.div>
@@ -57,43 +57,34 @@ const TechStack = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-8"
+          className="grid md:grid-cols-2 gap-3"
         >
           {techCategories.map((category) => (
             <motion.div
               key={category.title}
               variants={itemVariants}
-              className="group relative bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-gray-200/60 hover:shadow-3xl transition-all duration-500 overflow-hidden"
+              className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200/60 dark:border-gray-700"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 via-transparent to-purple-50/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="absolute top-6 right-6 w-20 h-20 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-              
-              <div className="relative space-y-6">
-                <div className="flex items-center gap-4 pb-4 border-b border-gray-200/50">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
-                    <span className="text-white font-bold text-lg">
-                      {category.title.charAt(0)}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    {category.title}
-                  </h3>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-4 h-4 rounded bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                  <span className="text-white font-bold text-xs">
+                    {category.title.charAt(0)}
+                  </span>
                 </div>
-                
-                <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, index) => (
-                    <span
-                      key={skill}
-                      className="px-4 py-2.5 bg-gradient-to-r from-gray-50 to-gray-100 text-gray-700 rounded-xl text-sm font-medium hover:from-blue-500 hover:to-purple-600 hover:text-white hover:shadow-lg hover:scale-105 transition-all duration-300 backdrop-blur-sm border border-gray-200/50"
-                      style={{
-                        transitionDelay: `${index * 50}ms`
-                      }}
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+                <h3 className="text-sm font-bold text-gray-900 dark:text-white">
+                  {category.title}
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill, index) => (
+                  <span
+                    key={skill}
+                    className="flex items-center gap-1.5 px-2 py-1 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-md text-xs font-medium hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                  >
+                    <span>{skill}</span>
+                  </span>
+                ))}
               </div>
             </motion.div>
           ))}

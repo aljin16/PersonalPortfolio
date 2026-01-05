@@ -2,10 +2,11 @@ import { motion } from 'framer-motion';
 import { MapPin, Calendar, Mail, Send, Users } from 'lucide-react';
 import verifiedIcon from '../assets/verified.png';
 import profileImage from '../assets/profile.png';
+import TextType from './TextType';
 
 const Hero = () => {
   return (
-    <section id="home" className="pt-8 pb-8 px-6 bg-white dark:bg-gray-900">
+    <section id="home" className="pt-6 pb-0 px-2 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +35,13 @@ const Hero = () => {
             </div>
 
             <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-medium mb-0.5">
-              Junior Web Developer
+              <TextType
+                text={['Junior Web Developer', 'Frontend-focused problem solver', 'Building smooth web experiences']}
+                typingSpeed={75}
+                pauseDuration={1500}
+                showCursor
+                cursorCharacter="|"
+              />
             </p>
 
             <div className="flex items-center gap-1.5 text-gray-400 dark:text-gray-500 text-sm mb-3">
