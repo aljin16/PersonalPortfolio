@@ -1,23 +1,47 @@
+import { useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Reveal } from './Motion';
-import { FolderOpen, ArrowUpRight } from 'lucide-react';
+import { FolderOpen, ArrowUpRight, Monitor } from 'lucide-react';
+import './Projects.css';
+
+const ProjectLink = motion.a;
 
 const projects = [
   {
-    title: 'Web-Based POS for Rice Store',
-    year: '2025',
-    url: 'http://ricepos.42web.io/Captone-Project-RicePos/public/?i=2',
-    description: 'A comprehensive point-of-sale system designed for rice retail businesses, featuring complete inventory and delivery management capabilities.',
+    title: 'Enviro Cleanse',
+    year: '2026',
+    client: true,
+    thumbnail: '/projects/enviro-cleanse.webp',
+    url: 'https://www.envirocleanse.com.au/',
+    description: 'A modern, SEO-focused Wix Studio website for a Sydney-based commercial and strata cleaning company, designed to showcase property services, improve local search visibility, and convert potential clients into qualified enquiries.',
+    tags: ['Wix Studio', 'Local SEO', 'UI/UX', 'Lead Generation'],
     features: [
-      'Inventory management with stock tracking',
-      'Delivery scheduling and route management',
-      'Real-time order tracking system',
-      'Role-based access control (Admin, Sales, Delivery)',
-      'Automated notifications system',
+      'Responsive website with optimized service navigation and enquiry-focused design.',
+      'Local SEO-focused service pages supporting visibility across Sydney.',
+      'Dedicated commercial, strata, and property cleaning service information.',
+      'Streamlined quote enquiries with prominent calls to action.',
+      'Mobile-friendly layouts and clear customer navigation.',
     ],
-    tags: ['Full-Stack', 'RBAC', 'Real-Time'],
+  },
+  {
+    title: 'Mrs. Brand Advisor',
+    year: '2026',
+    client: true,
+    thumbnail: '/projects/mrs-brand-advisor.webp',
+    url: 'https://www.mrsbrandadvisor.com/',
+    description: 'A professional, conversion-focused consulting website designed to strengthen brand credibility, showcase business growth and strategy services, and guide entrepreneurs and business owners toward personalized consultations.',
+    tags: ['Wix', 'UI/UX', 'Brand Strategy', 'Conversion Design'],
+    features: [
+      'Responsive website presenting consulting services and strategic business solutions.',
+      'Consultation booking pathways with prominent calls to action.',
+      'Professional brand presentation and intuitive user navigation.',
+      'Trust-building website content and client testimonials.',
+      'Clear service information supporting potential client enquiries.',
+    ],
   },
   {
     title: 'E-Mekaniko',
+    thumbnail: '/projects/e-mekaniko.webp',
     year: '2025',
     url: 'https://e-mekaniko-qqz9.vercel.app/',
     description: 'A professional web platform for auto-mechanic services, connecting vehicle owners with reliable repair and maintenance solutions.',
@@ -31,6 +55,7 @@ const projects = [
   },
   {
     title: 'CleanPro',
+    thumbnail: '/projects/cleanpro.webp',
     year: '2025',
     url: 'https://clean-pro-navy.vercel.app/',
     description: 'A cleaning service management platform that connects customers with professional cleaning services.',
@@ -44,6 +69,7 @@ const projects = [
   },
   {
     title: 'FureverCare',
+    thumbnail: '/projects/furevercare.webp',
     year: '2025',
     url: 'https://furever-care-eight.vercel.app/',
     description: 'A pet shop and services landing page designed to showcase pet care offerings and facilitate service bookings.',
@@ -57,95 +83,55 @@ const projects = [
   },
 ];
 
-const Projects = () => {
-  return (
-    <section id="projects" className="py-0 px-4 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto">
-        <Reveal
-          className="portfolio-card projects-panel"
-        >
-            {/* Header */}
-            <div className="flex items-center gap-2.5 mb-1">
-              <FolderOpen size={16} className="text-gray-500 dark:text-gray-400" />
-              <h2 className="text-lg font-extrabold text-gray-900 dark:text-white">Recent Projects</h2>
-            </div>
+function ProjectPreview({ project }) {
+  const [failed, setFailed] = useState(false);
+  return <div className="project-preview">
+    {failed ? <div className="project-preview-fallback" role="img" aria-label={project.title + ' website preview unavailable'}>
+      <Monitor size={32} aria-hidden="true" />
+      <strong>{project.title}</strong>
+      <span>Preview unavailable · View the live website below</span>
+    </div> : <img src={project.thumbnail} alt={project.title + ' homepage showing its navigation and main website content'} width="1440" height="900" loading="lazy" decoding="async" onError={() => setFailed(true)} />}
+  </div>;
+}
 
-            {/* Projects Grid */}
-            <div className="project-grid grid md:grid-cols-2">
-          {projects.map((project) => (
-            <Reveal
-              as="a" lift key={project.title}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-card group"
-            >
-
-
-              <div className="project-arrow">
-                <ArrowUpRight size={18} />
-              </div>
-
-              <div className="project-content">
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex-1">
-                    <h3 className="text-base font-semibold tracking-tight text-gray-900 dark:text-white mb-2 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">
-                      {project.title}
-                    </h3>
-                    <div className="flex items-center gap-2 text-[11px] text-gray-500 dark:text-gray-400 mb-2">
-                      <div className="flex items-center gap-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-                        <span>{project.year}</span>
-                      </div>
-                      <span className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
-                      <span className="text-emerald-600 dark:text-emerald-400 font-medium">Live Project</span>
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-gray-700 dark:text-gray-300 text-[11px] rounded-md font-medium border border-gray-200/70 dark:border-gray-600/70 bg-white/70 dark:bg-gray-800/70 hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="pt-2 border-t border-gray-100/60 dark:border-gray-700/60">
-                  <div className="space-y-1">
-                    {project.features.slice(0, 2).map((feature) => (
-                      <div key={feature} className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 mt-1.5 shrink-0"></div>
-                        <span className="line-clamp-1">{feature}</span>
-                      </div>
-                    ))}
-                    {project.features.length > 2 && (
-                      <div className="text-xs text-gray-400 dark:text-gray-500 pl-3.5 font-medium">
-                        +{project.features.length - 2} more features
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                <div className="project-action">
-                  <span>View Project</span>
-                  <ArrowUpRight size={14} />
-                </div>
-              </div>
-            </Reveal>
-          ))}
+export default function Projects() {
+  const reduced = useReducedMotion();
+  return <section id="projects" className="py-0 px-4 bg-white dark:bg-gray-900">
+    <div className="max-w-6xl mx-auto">
+      <Reveal className="portfolio-card projects-panel">
+        <div className="flex items-center gap-2.5 mb-1">
+          <FolderOpen size={16} className="text-gray-500 dark:text-gray-400" aria-hidden="true" />
+          <h2 className="text-lg font-extrabold text-gray-900 dark:text-white">Recent Projects</h2>
         </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-};
-
-export default Projects;
+        <div className="project-grid grid md:grid-cols-2">
+          {projects.map(project => <Reveal key={project.title} className="project-reveal">
+            <ProjectLink href={project.url} target="_blank" rel="noopener noreferrer"
+              aria-label={'View ' + project.title + ' website (opens in a new tab)'}
+              className={'project-card' + (project.client ? ' project-card--client' : '')}
+              initial={false} whileHover={reduced ? undefined : { y: -4 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}>
+              <ProjectPreview project={project} />
+              <div className="project-content">
+                <div className="project-heading">
+                  <h3>{project.title}</h3>
+                  <span className="project-arrow" aria-hidden="true"><ArrowUpRight size={18} /></span>
+                </div>
+                <div className="project-meta">
+                  <span className="project-year">{project.year}{project.client && <span className="project-client-label">Client work</span>}</span>
+                  <span className="project-status"><span aria-hidden="true" />Live Project</span>
+                </div>
+                <p>{project.description}</p>
+                <div className="project-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+                <div className="project-feature-block">
+                  <ul className="project-features">{project.features.slice(0, 2).map(feature => <li key={feature}>{feature}</li>)}</ul>
+                  {project.features.length > 2 && <span className="project-more-features">+{project.features.length - 2} more features</span>}
+                </div>
+                <span className="project-action">View Project<ArrowUpRight size={16} aria-hidden="true" /></span>
+              </div>
+            </ProjectLink>
+          </Reveal>)}
+        </div>
+      </Reveal>
+    </div>
+  </section>;
+}
