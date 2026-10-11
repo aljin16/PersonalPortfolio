@@ -1,91 +1,103 @@
-import { motion } from 'framer-motion';
-import { MapPin, Calendar, Mail, Send, Users } from 'lucide-react';
-import verifiedIcon from '../assets/verified.png';
-import profileImage from '../assets/profile.png';
-import TextType from './TextType';
-
-const Hero = () => {
+import { ArrowDown, ArrowUpRight, Asterisk } from "lucide-react";
+import { platforms } from "../data";
+import ProjectImage from "./ProjectImage";
+export default function Hero() {
   return (
-    <section id="home" className="pt-6 pb-0 px-2 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col md:flex-row gap-6 items-start"
+    <>
+      <section
+        id="home"
+        className="hero container"
+        aria-labelledby="hero-title"
+      >
+        <div className="hero-copy">
+          <p className="eyebrow hero-enter">
+            Aljean Sinohin · Web Designer &amp; Developer
+          </p>
+          <h1 id="hero-title" className="hero-enter">
+            Thoughtful websites.
+            <br />
+            <span>Built for your business.</span>
+          </h1>
+          <p className="hero-description hero-enter">
+            I design and build responsive websites that make your services
+            clear, your brand credible, and the next step easy for your
+            customers.
+          </p>
+          <div className="hero-actions hero-enter">
+            <a className="button" href="#work">
+              Explore My Work <ArrowDown size={18} aria-hidden="true" />
+            </a>
+            <a className="button button-outline" href="#contact">
+              Let’s Talk <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+          </div>
+          <p className="location hero-enter">
+            <span aria-hidden="true" />
+            Based in the Philippines · Working with clients remotely
+          </p>
+        </div>
+        <div
+          className="hero-art hero-enter"
+          aria-label="A preview of my website projects"
         >
-          {/* Profile Image */}
-          <div className="shrink-0">
-            <div className="w-28 h-28 md:w-32 md:h-32 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center overflow-hidden ring-1 ring-gray-200 dark:ring-gray-700">
-              <img 
-                src={profileImage} 
-                alt="Aljean Sinohin" 
-                className="w-full h-full object-cover"
-              />
-            </div>
+          <div className="art-label">
+            <span>DESIGN WITH PURPOSE</span>
+            <Asterisk size={35} strokeWidth={1.4} aria-hidden="true" />
           </div>
-
-          {/* Profile Info */}
-          <div className="flex-1">
-            <div className="flex flex-wrap items-center gap-2 mb-1">
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
-                Aljean Sinohin
-              </h1>
-              <img src={verifiedIcon} alt="Verified" className="w-5 h-5" />
+          <div className="hero-preview preview-main">
+            <div className="browser-bar" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+              <span>cleanpro · service website</span>
+              <ArrowUpRight size={12} />
             </div>
-
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-medium mb-0.5">
-              <TextType
-                text={['Junior Web Developer', 'Frontend-focused problem solver', 'Building smooth web experiences']}
-                typingSpeed={75}
-                pauseDuration={1500}
-                showCursor
-                cursorCharacter="|"
-              />
-            </p>
-
-            <div className="flex items-center gap-1.5 text-gray-400 dark:text-gray-500 text-sm mb-3">
-              <MapPin size={14} />
-              <span>Nueva Ecija, Philippines</span>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-2">
-              <motion.a
-                href="tel:09915120853"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
-              >
-                <Calendar size={14} />
-                Phone Call
-              </motion.a>
-
-              <motion.a
-                href="mailto:aljeansinohin16@gmail.com"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs border border-gray-200 dark:border-gray-700 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-              >
-                <Mail size={14} />
-                aljeansinohin16@gmail.com
-              </motion.a>
-
-              <motion.a
-                href="#projects"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs border border-gray-200 dark:border-gray-700 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-              >
-                <Users size={14} />
-                View my projects
-              </motion.a>
-            </div>
+            <ProjectImage
+              name="cleanpro"
+              alt="Actual CleanPro website preview."
+              eager
+            />
           </div>
-        </motion.div>
+          <div className="hero-preview preview-secondary">
+            <div className="browser-bar" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+              <span>e-mekaniko</span>
+            </div>
+            <ProjectImage
+              name="mekaniko"
+              alt="Actual E-Mekaniko automotive website preview."
+              eager
+              sizes="(max-width: 768px) 55vw, 320px"
+            />
+          </div>
+          <div className="art-caption">
+            <span>
+              Clear design.
+              <br />
+              Practical development.
+            </span>
+            <span className="art-plus" aria-hidden="true">
+              ↗
+            </span>
+          </div>
+        </div>
+      </section>
+      <div className="platform-strip">
+        <div className="container platform-inner">
+          <p>
+            THE RIGHT TOOLS
+            <br />
+            <span>FOR YOUR NEXT WEBSITE</span>
+          </p>
+          <ul aria-label="Website platforms">
+            {platforms.map((platform) => (
+              <li key={platform}>{platform}</li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </section>
+    </>
   );
-};
-
-export default Hero;
+}
