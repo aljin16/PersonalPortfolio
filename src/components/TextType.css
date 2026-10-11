@@ -1,14 +1,4 @@
-.text-type {
-  display: inline-block;
-  white-space: pre-wrap;
-}
-
-.text-type__cursor {
-  margin-left: 0.25rem;
-  display: inline-block;
-  opacity: 1;
-}
-
-.text-type__cursor--hidden {
-  display: none;
-}
+.text-type { display: inline; }
+.text-type__cursor { margin-left: .15rem; animation: cursor-blink 1s steps(2) infinite; }
+@keyframes cursor-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .text-type__cursor { animation: none; display: none; } }

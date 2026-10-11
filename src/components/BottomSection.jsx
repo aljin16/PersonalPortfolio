@@ -1,12 +1,6 @@
-import { motion } from 'framer-motion';
+import { Reveal } from './Motion';
 import { Users, Link2, Mic, Mail, Calendar, MessageSquare, Linkedin, Github, Instagram, ChevronRight, GraduationCap, ExternalLink } from 'lucide-react';
 
-const memberships = [
-  {
-    name: 'IT Students Organization',
-    link: '#',
-  },
-];
 
 const socialLinks = [
   { name: 'LinkedIn', icon: Linkedin, href: 'https://ph.linkedin.com/in/aljean-sinohin-08a496217' },
@@ -32,14 +26,10 @@ const BottomSection = () => {
     <section className="py-4 px-4 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         {/* Four Column Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200/60 dark:border-gray-700"
+          <Reveal
+            className="portfolio-card bottom-card"
           >
             <div className="flex items-center gap-2 mb-3">
               <Link2 size={14} className="text-gray-500 dark:text-gray-400" />
@@ -60,15 +50,11 @@ const BottomSection = () => {
                 </a>
               ))}
             </div>
-          </motion.div>
+          </Reveal>
 
           {/* Education */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200/60 dark:border-gray-700"
+          <Reveal
+            className="portfolio-card bottom-card"
           >
             <div className="flex items-center gap-2 mb-3">
               <GraduationCap size={14} className="text-gray-500 dark:text-gray-400" />
@@ -84,16 +70,12 @@ const BottomSection = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </Reveal>
 
           {/* Contact */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.3 }}
+          <Reveal
             id="contact"
-            className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200/60 dark:border-gray-700"
+            className="portfolio-card bottom-card"
           >
             <div className="space-y-1.5">
               <a
@@ -108,7 +90,7 @@ const BottomSection = () => {
               </a>
 
               <a
-                href="#"
+                href="mailto:aljeansinohin16@gmail.com"
                 className="flex items-center justify-between p-2 bg-orange-50 dark:bg-orange-900/20 rounded-lg hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-colors group"
               >
                 <div className="flex items-center gap-2">
@@ -118,7 +100,7 @@ const BottomSection = () => {
                 <ChevronRight size={14} className="text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300" />
               </a>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </div>
     </section>

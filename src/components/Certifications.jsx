@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Award, CheckCircle } from 'lucide-react';
 
 const Certifications = () => {
   return (
     <section id="certifications" className="py-0 px-4">
       <div className="max-w-4xl mx-auto">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -17,9 +17,9 @@ const Certifications = () => {
           <p className="text-gray-500 text-center mb-6 max-w-2xl mx-auto">
             Professional certifications validating technical competencies
           </p>
-        </motion.div>
+        </Motion.div>
 
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -89,7 +89,7 @@ const Certifications = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

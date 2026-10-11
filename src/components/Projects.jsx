@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { Reveal } from './Motion';
 import { FolderOpen, ArrowUpRight } from 'lucide-react';
 
 const projects = [
@@ -61,12 +61,8 @@ const Projects = () => {
   return (
     <section id="projects" className="py-0 px-4 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700"
+        <Reveal
+          className="portfolio-card projects-panel"
         >
             {/* Header */}
             <div className="flex items-center gap-2.5 mb-1">
@@ -75,26 +71,22 @@ const Projects = () => {
             </div>
 
             {/* Projects Grid */}
-            <div className="grid md:grid-cols-2 gap-2">
-          {projects.map((project, index) => (
-            <motion.a
-              key={project.title}
+            <div className="project-grid grid md:grid-cols-2">
+          {projects.map((project) => (
+            <Reveal
+              as="a" lift key={project.title}
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl p-3 border border-gray-200/60 dark:border-gray-700/60 transition-all duration-500 overflow-hidden hover:bg-white hover:shadow-2xl dark:hover:bg-gray-800 dark:hover:shadow-2xl"
+              className="project-card group"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 dark:from-blue-900/40 via-transparent to-purple-50/40 dark:to-purple-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="absolute top-3 right-3 w-10 h-10 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 group-hover:from-blue-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-500 shadow-lg group-hover:scale-110">
+
+
+              <div className="project-arrow">
                 <ArrowUpRight size={18} />
               </div>
 
-              <div className="relative space-y-2">
+              <div className="project-content">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <h3 className="text-base font-semibold tracking-tight text-gray-900 dark:text-white mb-2 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">
@@ -111,7 +103,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-2 text-sm">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
                   {project.description}
                 </p>
 
@@ -142,15 +134,15 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="project-action">
                   <span>View Project</span>
                   <ArrowUpRight size={14} />
                 </div>
               </div>
-            </motion.a>
+            </Reveal>
           ))}
         </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

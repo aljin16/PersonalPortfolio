@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const About = () => {
   return (
     <section id="about" className="py-0 px-6 bg-gray-50">
       <div className="max-w-4xl mx-auto">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -58,7 +58,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

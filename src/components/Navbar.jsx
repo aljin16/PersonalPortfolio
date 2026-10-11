@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <motion.nav
+    <Motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -35,7 +35,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-    </motion.nav>
+    </Motion.nav>
   );
 };
 

@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Mail, Linkedin, Github, Send } from 'lucide-react';
 
 const Contact = () => {
   return (
     <section id="contact" className="py-20 px-6">
       <div className="max-w-4xl mx-auto">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -17,9 +17,9 @@ const Contact = () => {
           <p className="text-gray-500 text-center mb-12 max-w-2xl mx-auto">
             I am currently open to new opportunities and collaborations. Whether you have a project in mind or just want to connect, feel free to reach out.
           </p>
-        </motion.div>
+        </Motion.div>
 
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -82,7 +82,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

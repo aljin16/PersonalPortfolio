@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
 
 const educationData = [
@@ -20,7 +20,7 @@ const Education = () => {
   return (
     <section id="education" className="py-20 px-6 bg-white dark:bg-gray-900">
       <div className="max-w-4xl mx-auto">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -32,7 +32,7 @@ const Education = () => {
           <p className="text-lg text-gray-500 text-center mb-12 max-w-2xl mx-auto">
             Academic background and qualifications
           </p>
-        </motion.div>
+        </Motion.div>
 
         <div className="relative">
           <div
@@ -41,7 +41,7 @@ const Education = () => {
 
           <div className="space-y-8">
             {educationData.map((edu, index) => (
-              <motion.div
+              <Motion.div
                 key={edu.degree}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -94,7 +94,7 @@ const Education = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </Motion.div>
             ))}
           </div>
         </div>

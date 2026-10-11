@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const techCategories = [
   {
@@ -38,7 +38,7 @@ const TechStack = () => {
   return (
     <section id="skills" className="py-6 px-6">
       <div className="max-w-5xl mx-auto">
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -50,9 +50,9 @@ const TechStack = () => {
           <p className="text-gray-500 text-center mb-6 max-w-2xl mx-auto">
             Technologies and tools I work with to build web applications
           </p>
-        </motion.div>
+        </Motion.div>
 
-        <motion.div
+        <Motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -60,7 +60,7 @@ const TechStack = () => {
           className="grid md:grid-cols-2 gap-3"
         >
           {techCategories.map((category) => (
-            <motion.div
+            <Motion.div
               key={category.title}
               variants={itemVariants}
               className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200/60 dark:border-gray-700"
@@ -77,7 +77,7 @@ const TechStack = () => {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, index) => (
+                {category.skills.map((skill) => (
                   <span
                     key={skill}
                     className="flex items-center gap-1.5 px-2 py-1 bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-md text-xs font-medium hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
@@ -86,9 +86,9 @@ const TechStack = () => {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </Motion.div>
           ))}
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );
