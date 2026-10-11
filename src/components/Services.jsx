@@ -1,50 +1,34 @@
-import { ArrowUpRight } from "lucide-react";
+import { PanelsTopLeft, MousePointer2, RefreshCw, Code2 } from "lucide-react";
 import { services } from "../data";
+
+const serviceIcons = [PanelsTopLeft, MousePointer2, RefreshCw, Code2];
+
 export default function Services() {
   return (
     <section
       id="services"
-      className="services-section section"
+      className="services-section section container"
       tabIndex={-1}
       aria-labelledby="services-title"
     >
-      <div className="container services-layout">
-        <div className="services-intro" data-reveal>
-          <p className="eyebrow section-kicker">02 / What I can help with</p>
-          <h2 id="services-title">
-            Web design with a <span className="teal">practical purpose.</span>
-          </h2>
-          <p>
-            From a first impression to the next step, every detail has a job to
-            do.
-          </p>
-          <a href="#contact" className="text-link">
-            Let’s find the right approach{" "}
-            <ArrowUpRight size={18} aria-hidden="true" />
-          </a>
+      <div className="section-heading" data-reveal>
+        <div>
+          <p className="section-label">Services</p>
+          <h2 id="services-title">How I can help</h2>
         </div>
-        <div className="service-list">
-          {services.map(([title, description], index) => (
-            <div
-              className="service-row"
-              key={title}
-              data-reveal
-              data-delay={index * 0.05}
-            >
-              <span className="service-number">0{index + 1}</span>
-              <div>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </div>
-              <ArrowUpRight
-                className="service-arrow"
-                size={22}
-                strokeWidth={1.4}
-                aria-hidden="true"
-              />
+        <p>Thoughtful design and practical development for your next website.</p>
+      </div>
+      <div className="service-grid">
+        {services.map(([title, description], index) => {
+          const Icon = serviceIcons[index];
+          return (
+            <div className="service-card" key={title} data-reveal>
+              <Icon size={24} strokeWidth={1.5} aria-hidden="true" />
+              <h3>{title}</h3>
+              <p>{description}</p>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );

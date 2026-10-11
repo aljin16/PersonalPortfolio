@@ -175,9 +175,7 @@ export default function Navbar() {
             )}
           </nav>
           <p>
-            Thoughtful websites.
-            <br />
-            Built for your business.
+            Web design &amp; development, with clarity and care.
           </p>
         </div>
       </dialog>
