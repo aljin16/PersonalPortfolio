@@ -1,108 +1,67 @@
-import { ArrowUpRight, Award } from "lucide-react";
-import { platforms } from "../data";
-import certificate from "../assets/cert1.png";
-import score from "../assets/cert2.png";
-import aiCertificate from "../assets/cert1.jpg";
+import { motion } from 'framer-motion';
 
-export default function About() {
+const About = () => {
   return (
-    <section
-      id="about"
-      className="section about-section container"
-      tabIndex={-1}
-      aria-labelledby="about-title"
-    >
-      <div className="section-heading" data-reveal>
-        <div>
-          <p className="section-label">About</p>
-          <h2 id="about-title">A little about me</h2>
-        </div>
-      </div>
-      <div className="about-layout">
-        <div className="about-copy" data-reveal>
-          <p>
-            I’m Aljean, a web designer and developer based in the Philippines. I
-            create clear, professional websites with practical functionality and
-            a consistent experience across devices.
-          </p>
-          <p>
-            My work includes business websites, landing pages, website
-            improvements, and custom web applications. I focus on thoughtful
-            layouts and straightforward navigation that make websites easier to
-            use and maintain.
-          </p>
-        </div>
-        <div className="about-details" data-reveal>
-          <div className="skill-groups">
-            <div>
-              <h3>Platforms</h3>
-              <p>{platforms.join(" · ")}</p>
-            </div>
-            <div>
-              <h3>Development</h3>
-              <p>
-                HTML &amp; CSS · JavaScript · React · Vue · Tailwind CSS · PHP ·
-                MySQL · Supabase
-              </p>
-            </div>
-            <div>
-              <h3>Design &amp; workflow</h3>
-              <p>Figma · Responsive Design · Git · API Integration · Vercel</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="credentials" data-reveal>
-        <div className="credential-card">
-          <div className="credential-main">
-            <Award size={24} strokeWidth={1.5} aria-hidden="true" />
-            <div>
-              <p className="section-label">Certiport IT Specialist</p>
-              <h3>HTML and CSS</h3>
-            </div>
-            <div className="credential-score">
-              <strong>
-                982<span>/1000</span>
-              </strong>
-              <span>Certification score</span>
+    <section id="about" className="py-0 px-6 bg-gray-50">
+      <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+            About Me
+          </h2>
+
+          <div className="group relative bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-gray-200/60 hover:shadow-3xl transition-all duration-500 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 via-transparent to-purple-50/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-emerald-400/20 to-blue-400/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-700"></div>
+            
+            <div className="relative space-y-8">
+              <div className="flex items-center gap-4 pb-4 border-b border-gray-200/50">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
+                  <span className="text-white font-bold text-lg">A</span>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900">About Me</h3>
+                  <p className="text-sm text-gray-500">Web Developer & IT Student</p>
+                </div>
+              </div>
+              
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <div className="group/item">
+                  <p className="text-lg leading-relaxed hover:text-gray-900 transition-colors duration-300">
+                    I am a motivated and growth-focused web developer with a strong foundation in front-end technologies and a genuine passion for creating clean, user-centered digital experiences. Currently completing my Bachelor of Science in Information Technology, I have developed practical skills through academic projects and hands-on development work.
+                  </p>
+                </div>
+
+                <div className="group/item">
+                  <p className="text-lg leading-relaxed hover:text-gray-900 transition-colors duration-300">
+                    My approach to development emphasizes clean code practices, intuitive UI/UX implementation, and building systems that solve real-world problems. I have experience working on full-stack web applications including point-of-sale systems, service booking platforms, and admin dashboards with role-based access control.
+                  </p>
+                </div>
+
+                <div className="group/item">
+                  <p className="text-lg leading-relaxed hover:text-gray-900 transition-colors duration-300">
+                    I am actively seeking opportunities to contribute to a professional development team where I can apply my skills, continue learning from experienced developers, and grow into a well-rounded software engineer. I am particularly interested in roles that involve building functional, user-friendly web applications.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-200/50">
+                <span className="px-4 py-2 bg-blue-50/80 text-blue-700 rounded-xl text-sm font-semibold backdrop-blur-sm border border-blue-100/50">Frontend Development</span>
+                <span className="px-4 py-2 bg-purple-50/80 text-purple-700 rounded-xl text-sm font-semibold backdrop-blur-sm border border-purple-100/50">UI/UX Design</span>
+                <span className="px-4 py-2 bg-emerald-50/80 text-emerald-700 rounded-xl text-sm font-semibold backdrop-blur-sm border border-emerald-100/50">Problem Solving</span>
+              </div>
             </div>
           </div>
-          <div className="credential-links">
-            <a
-              className="text-link"
-              href="https://www.credly.com/badges/53a65aa4-0b25-44a2-8489-c89bb9b67047/facebook_messenger"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View credential <ArrowUpRight size={15} aria-hidden="true" />
-            </a>
-            <a href={certificate} target="_blank" rel="noopener noreferrer">
-              Certificate
-            </a>
-            <a href={score} target="_blank" rel="noopener noreferrer">
-              Score report
-            </a>
-          </div>
-        </div>
-        <div className="credential-card education">
-          <p className="section-label">Education</p>
-          <h3>BS Information Technology</h3>
-          <p>
-            Nueva Ecija University of Science and Technology
-            <br />
-            2022–2026 studies
-          </p>
-          <a
-            className="text-link"
-            href={aiCertificate}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            AI Ready ASEAN · Certificate of participation
-            <ArrowUpRight size={15} aria-hidden="true" />
-          </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
-}
+};
+
+export default About;

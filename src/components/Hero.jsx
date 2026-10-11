@@ -1,46 +1,91 @@
-import { ArrowDown, ArrowUpRight, MapPin } from "lucide-react";
-import { platforms } from "../data";
+import { motion } from 'framer-motion';
+import { MapPin, Calendar, Mail, Send, Users } from 'lucide-react';
+import verifiedIcon from '../assets/verified.png';
+import profileImage from '../assets/profile.png';
+import TextType from './TextType';
 
-export default function Hero() {
+const Hero = () => {
   return (
-    <>
-      <section id="home" className="hero container" aria-labelledby="hero-title">
-        <div className="hero-copy">
-          <p className="hero-introduction">Hi, I’m Aljean Sinohin <span aria-hidden="true">↗</span></p>
-          <p className="eyebrow hero-role">Web Designer &amp; Developer</p>
-          <h1 id="hero-title">
-            I design &amp; build<br />
-            <span>thoughtful websites.</span>
-          </h1>
-          <p className="hero-description">
-            Clean design, clear navigation, and practical development.
-            I create websites that look good and make everyday interactions feel easy.
-          </p>
-          <div className="hero-actions">
-            <a className="button" href="#work">
-              View my work <ArrowDown size={17} aria-hidden="true" />
-            </a>
-            <a className="text-link" href="#contact">
-              Get in touch <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
+    <section id="home" className="pt-6 pb-0 px-2 bg-white dark:bg-gray-900">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col md:flex-row gap-6 items-start"
+        >
+          {/* Profile Image */}
+          <div className="shrink-0">
+            <div className="w-28 h-28 md:w-32 md:h-32 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center overflow-hidden ring-1 ring-gray-200 dark:ring-gray-700">
+              <img 
+                src={profileImage} 
+                alt="Aljean Sinohin" 
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
-        </div>
-        <figure className="hero-portrait">
-          <div className="portrait-frame">
-            <img src="/images/aljean.webp" alt="Aljean Sinohin" width="720" height="900" fetchPriority="high" decoding="async" />
+
+          {/* Profile Info */}
+          <div className="flex-1">
+            <div className="flex flex-wrap items-center gap-2 mb-1">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
+                Aljean Sinohin
+              </h1>
+              <img src={verifiedIcon} alt="Verified" className="w-5 h-5" />
+            </div>
+
+            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-medium mb-0.5">
+              <TextType
+                text={['Junior Web Developer', 'Frontend-focused problem solver', 'Building smooth web experiences']}
+                typingSpeed={75}
+                pauseDuration={1500}
+                showCursor
+                cursorCharacter="|"
+              />
+            </p>
+
+            <div className="flex items-center gap-1.5 text-gray-400 dark:text-gray-500 text-sm mb-3">
+              <MapPin size={14} />
+              <span>Nueva Ecija, Philippines</span>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-2">
+              <motion.a
+                href="tel:09915120853"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
+              >
+                <Calendar size={14} />
+                Phone Call
+              </motion.a>
+
+              <motion.a
+                href="mailto:aljeansinohin16@gmail.com"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs border border-gray-200 dark:border-gray-700 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <Mail size={14} />
+                aljeansinohin16@gmail.com
+              </motion.a>
+
+              <motion.a
+                href="#projects"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs border border-gray-200 dark:border-gray-700 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <Users size={14} />
+                View my projects
+              </motion.a>
+            </div>
           </div>
-          <figcaption>
-            <span className="portrait-name">A designer who codes.</span>
-            <span className="portrait-location"><MapPin size={13} aria-hidden="true" /> Based in the Philippines</span>
-          </figcaption>
-        </figure>
-      </section>
-      <div className="platform-strip container">
-        <p>Platforms I work with</p>
-        <ul aria-label="Website platforms">
-          {platforms.map((platform) => <li key={platform}>{platform}</li>)}
-        </ul>
+        </motion.div>
       </div>
-    </>
+    </section>
   );
-}
+};
+
+export default Hero;
