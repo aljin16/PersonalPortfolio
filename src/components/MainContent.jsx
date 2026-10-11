@@ -108,13 +108,16 @@ const MainContent = () => {
             <div className="card-heading"><FileText size={20} /><h2>About</h2></div>
             <div className="about-body">
                 <p>
-                  I am a motivated and growth-focused web developer with a strong foundation in front-end technologies and a genuine passion for creating clean, user-centered digital experiences. Currently completing my Bachelor of Science in Information Technology, I have developed practical skills through academic projects and hands-on development work.
+                  I’m Aljean, a web designer and developer with 3+ years of experience supporting US and Australian businesses. I help make your website easier to find, your services easier to understand, and your customers’ next step clearer, whether that’s requesting a quote, booking a session, or contacting your team.
                 </p>
                 <p>
-                  My approach to development emphasizes clean code practices, intuitive UI/UX implementation, and building systems that solve real-world problems. I have experience working on full-stack web applications including point-of-sale systems, service booking platforms, and admin dashboards with role-based access control.
+                  Using Wix, Wix Studio, WordPress, and custom web technologies, I solve practical problems such as confusing mobile layouts, unclear service pages, and complicated booking processes. My experience includes website improvements for an Australian commercial cleaning business, refining booking confirmations for a service provider, and building dashboards that help a US brand strategist organize partnerships and track business activity.
                 </p>
                 <p>
-                  I am actively seeking opportunities to contribute to a professional development team where I can apply my skills, continue learning from experienced developers, and grow into a well-rounded software engineer.
+                  I also support SEO, AEO, and GEO to strengthen how your business presents its services across search engines and AI search. I’m extending my work into GoHighLevel and AI automation, focusing on keeping leads organized, simplifying follow-ups, and reducing repetitive admin.
+                </p>
+                <p>
+                  When you hire me, you get someone who understands both your website and the work happening behind it. I bring design, technical skills, and hands-on business support together to create tools that customers can use easily and your team can manage confidently. My focus is on solving the issues that cost you time, create confusion, or make it harder for potential customers to take action.
                 </p>
               </div>
           </Reveal>

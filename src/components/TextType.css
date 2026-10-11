@@ -1,4 +1,8 @@
-.text-type { display: inline; }
+.text-type { display: inline-grid; max-width: 100%; vertical-align: top; }
+.text-type__sizer, .text-type__visual { grid-area: 1 / 1; min-width: 0; }
+.text-type__sizer { visibility: hidden; pointer-events: none; user-select: none; }
+.text-type__ending { white-space: nowrap; }
+.text-type__cursor-space { margin-left: .15rem; }
 .text-type__cursor { margin-left: .15rem; animation: cursor-blink 1s steps(2) infinite; }
 @keyframes cursor-blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .text-type__cursor { animation: none; display: none; } }
