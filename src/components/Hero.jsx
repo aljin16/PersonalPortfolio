@@ -1,14 +1,14 @@
 import { MapPin, Calendar, Mail, Users } from 'lucide-react';
 import { Reveal } from './Motion';
 import verifiedIcon from '../assets/verified.png';
-const profileImage = '/profile.webp';
+import ProfilePhoto from './ProfilePhoto';
 import TextType from './TextType';
 
 const roles = ['Web Designer & Developer', 'SEO, AEO & GEO', 'AI Tools & Automation', 'Websites that build trust', 'Workflows that save time'];
 export default function Hero() {
   return <section id="home" className="profile-header">
     <div className="max-w-6xl mx-auto flex flex-col md:flex-row profile-layout">
-      <Reveal className="profile-photo"><img src={profileImage} alt="Aljean Sinohin" width="128" height="128" fetchPriority="high" /></Reveal>
+      <Reveal className="profile-photo"><ProfilePhoto /></Reveal>
       <div className="profile-info min-w-0 flex-1">
         <Reveal delay={0.04}>
           <div className="profile-name-row"><h1>Aljean Sinohin</h1><img src={verifiedIcon} alt="Verified" width="22" height="22" /></div>
